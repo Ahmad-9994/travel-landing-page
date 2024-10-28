@@ -22,7 +22,7 @@ const DetailCard = () => {
       <div class="px-5 pb-5">
         <a href="#">
           <h5 class="text-xl font-semibold tracking-tight">
-            Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
+            2 Days Private Tour in Lahore
           </h5>
         </a>
         <div className="flex gap-2 items-center ">
