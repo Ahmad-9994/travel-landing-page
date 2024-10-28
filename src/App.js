@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import SignUp from './pages/SignUp';
+import Login from "./pages/Login";
+import LandingPage from './pages/LandingPage';
+import FooterComponent from './components/commonComponents/Footer';
+import NavBar from './components/commonComponents/NavBar';
 import './App.css';
 
 function App() {
+  const location = useLocation();
+  const footerRoutes = ['/sign-up', '/login'];
+  const showFooter = footerRoutes.includes(location.pathname);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+     
+      {!showFooter &&  <NavBar />}
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+      {!showFooter && <FooterComponent />}
     </div>
   );
 }
-
 export default App;
